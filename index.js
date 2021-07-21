@@ -97,10 +97,21 @@ Car.prototype.fill = function(gallons) {
   this.tank += gallons;
 };
 
-// Car.prototype.drive = function (distance) {
-//   this.odometer += distance;
-//   this.tank -= this.milesPerGallon/
-// }
+Car.prototype.drive = function(distance) {
+  const driveableMiles = this.tank * this.milesPerGallon;
+
+  if (distance <= driveableMiles) {
+    this.odometer += distance;
+    this.tank -= distance / this.milesPerGallon;
+  } else {
+    this.tank = 0;
+    this.odometer += driveableMiles;
+    return `I ran out of fuel at ${this.odometer}`;
+  }
+};
+
+const jeep = new Car("jeep", 14);
+console.log(jeep.drive(240));
 
 /*
   TASK 3
@@ -121,10 +132,10 @@ Baby.prototype.play = function() {
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window Binding
+  2. Implicit binding
+  3. Call,apply,bind
+  4. New binding
 */
 
 ///////// END OF CHALLENGE /////////
