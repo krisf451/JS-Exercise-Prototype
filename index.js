@@ -110,8 +110,9 @@ Car.prototype.drive = function(distance) {
   }
 };
 
-const jeep = new Car("jeep", 14);
-console.log(jeep.drive(240));
+// const jeep = new Car("jeep", 14);
+// console.log(jeep.fill(20));
+// console.log(jeep.drive(240));
 
 /*
   TASK 3
